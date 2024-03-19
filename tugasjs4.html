@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Pegawai</title>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+</head>
+<body>
+
+<h2>Data Pegawai</h2>
+
+<table id="dataPegawai">
+    <thead>
+        <tr>
+            <th>Nama Pegawai</th>
+            <th>Jabatan</th>
+            <th>Status</th>
+            <th>Gaji Pokok</th>
+            <th>Tunjangan Jabatan</th>
+            <th>BPJS</th>
+            <th>Tunjangan Keluarga</th>
+            <th>Total Gaji</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Jhon</td>
+            <td>Manager</td>
+            <td>Menikah</td>
+            <td>15,000,000</td>
+            <td id="tunjanganJabatan1">-</td>
+            <td id="bpjs1">-</td>
+            <td id="tunjanganKeluarga1">-</td>
+            <td id="totalGaji1">-</td>
+        </tr>
+        <tr>
+            <td>Putri</td>
+            <td>Asisten Manager</td>
+            <td>Single</td>
+            <td>10,000,000</td>
+            <td id="tunjanganJabatan2">-</td>
+            <td id="bpjs2">-</td>
+            <td id="tunjanganKeluarga2">-</td>
+            <td id="totalGaji2">-</td>
+        </tr>
+        <tr>
+            <td>Jesika</td>
+            <td>Staff</td>
+            <td>Menikah</td>
+            <td>5,000,000</td>
+            <td id="tunjanganJabatan3">-</td>
+            <td id="bpjs3">-</td>
+            <td id="tunjanganKeluarga3">-</td>
+            <td id="totalGaji3">-</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="7" style="text-align: right;">Total Gaji Keseluruhan</td>
+            <td id="totalGajiKeseluruhan">-</td>
+        </tr>
+    </tfoot>
+</table>
+
+<script>
+
+function hitungGaji() {
+   
+    const gajiManager = 15000000;
+    const gajiAsistenManager = 10000000;
+    const gajiStaff = 5000000;
+
+    
+    const tunjanganJabatan1 = gajiManager * 0.15;
+    const bpjs1 = gajiManager * 0.1;
+    const tunjanganKeluarga1 = gajiManager * 0.2;
+    const totalGaji1 = gajiManager + tunjanganJabatan1 + bpjs1 + tunjanganKeluarga1;
+
+    const tunjanganJabatan2 = gajiAsistenManager * 0.15;
+    const bpjs2 = gajiAsistenManager * 0.1;
+    const tunjanganKeluarga2 = 0; 
+    const totalGaji2 = gajiAsistenManager + tunjanganJabatan2 + bpjs2 + tunjanganKeluarga2;
+
+    const tunjanganJabatan3 = gajiStaff * 0.15;
+    const bpjs3 = gajiStaff * 0.1;
+    const tunjanganKeluarga3 = gajiStaff * 0.2;
+    const totalGaji3 = gajiStaff + tunjanganJabatan3 + bpjs3 + tunjanganKeluarga3;
+
+    
+    document.getElementById('tunjanganJabatan1').innerText = tunjanganJabatan1.toLocaleString();
+    document.getElementById('bpjs1').innerText = bpjs1.toLocaleString();
+    document.getElementById('tunjanganKeluarga1').innerText = tunjanganKeluarga1.toLocaleString();
+    document.getElementById('totalGaji1').innerText = totalGaji1.toLocaleString();
+
+    document.getElementById('tunjanganJabatan2').innerText = tunjanganJabatan2.toLocaleString();
+    document.getElementById('bpjs2').innerText = bpjs2.toLocaleString();
+    document.getElementById('tunjanganKeluarga2').innerText = tunjanganKeluarga2.toLocaleString();
+    document.getElementById('totalGaji2').innerText = totalGaji2.toLocaleString();
+
+    document.getElementById('tunjanganJabatan3').innerText = tunjanganJabatan3.toLocaleString();
+    document.getElementById('bpjs3').innerText = bpjs3.toLocaleString();
+    document.getElementById('tunjanganKeluarga3').innerText = tunjanganKeluarga3.toLocaleString();
+    document.getElementById('totalGaji3').innerText = totalGaji3.toLocaleString();
+
+    
+    const totalGajiKeseluruhan = totalGaji1 + totalGaji2 + totalGaji3;
+    document.getElementById('totalGajiKeseluruhan').innerText = totalGajiKeseluruhan.toLocaleString();
+}
+
+
+hitungGaji();
+</script>
+
+</body>
+</html>
